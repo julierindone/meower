@@ -1,7 +1,10 @@
 import { tweetsData } from "./data.js";
 
-console.log(tweetsData);
+const tweetInput = document.getElementById("tweet-input")
+const tweetBtn = document.getElementById("tweet-btn")
 
-tweetsData.forEach(tweet => {
-    console.log(tweet.handle);
-});
+tweetBtn.addEventListener('click', function(){
+	console.log(`clicked`);
+	console.log(tweetInput.value);
+	tweetInput.value = ''
+})
