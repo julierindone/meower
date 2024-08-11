@@ -1,16 +1,24 @@
+:root {
+    --ice-blue: #9bcbd1;
+    --robins-egg: #599197;
+    --gray-outline: #b9b9b9;
+}
+
 html, body {
     margin: 0;
     padding: 0;
     font-family: 'Roboto', sans-serif;
+    font-size: 18px;
 }
 
 /* typography and icons */
 
 h1{
-    color: #0F8CDF;
+    color: var(--ice-blue);
     margin-bottom: 10px;
-    font-size: 20px;
-}
+    font-size: 1.82rem;
+    -webkit-text-stroke-width: .25px;
+    -webkit-text-stroke-color: var(--gray-outline);}
 
 i{
     font-size: 15px;
@@ -18,22 +26,22 @@ i{
 }
 
 .liked{
-    color: red;
+    color: rgb(149, 0, 0);
 }
 
 .retweeted {
-  color: limegreen;
+    color: rgb(0, 107, 57);
 }
 
 /* layout */
 
 main, header{
-    width: 290px;
+    width: 92%;
     margin: 0 auto;
 }
 
 header{
-    padding-bottom: 25px;
+    padding-bottom: 5px;
 }
 
 .tweet-input-area {
@@ -45,25 +53,38 @@ header{
 /* textareas + btn */
 
 textarea{
-    border: none;
-    padding: 10px;
-    margin: 0 0 20px 0;
-    height: 60px;
+    border: 1px solid var(--ice-blue);
+    padding: 5px 8px;
+    margin: 0 0 25px 0;
+    height: 4.25rem;
     width: 100%;
-    font-size: 20px;
-    line-height: 30px;
+    font-size: .95rem;
+    line-height: 1.25rem;
+    resize: none;
+    border-radius: 6px;
+}
+
+textarea::placeholder {
+    color: var(--ice-blue)    
+}
+
+textarea:focus {
+    outline: transparent !important;
+    border-color:var(--robins-egg);
 }
 
 button{
-    background-color: #1DA1F2;
-    border: none;
+    background: var(--ice-blue);    border: none;
     color: white;
     padding: 10px 19px;
-    border-radius: 20px;
+    border-radius: 18px;
     width: 100%; 
     cursor: pointer;
-    font-size: 20px;
+    font-size: 1.5rem;
     font-weight: 600;
+    box-shadow: 2px 2px .5px var(--gray-outline);
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: var(--gray-outline);
 }
 
 /* tweet */
@@ -116,9 +137,9 @@ button{
 /* images */
 
 .profile-pic{
-    border: 1px solid lightgray;
+    border: 1px solid var(--gray-outline);
     border-radius: 50%;
-    width: 48px;
+    width: 52px;
 }
 
 /* utility */
