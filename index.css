@@ -36,7 +36,7 @@ i{
 /* layout */
 
 main, header{
-    width: 92%;
+    width: 90%;
     margin: 0 auto;
 }
 
@@ -55,7 +55,7 @@ header{
 textarea{
     border: 1px solid var(--ice-blue);
     padding: 5px 8px;
-    margin: 0 0 25px 0;
+    margin: 0 0 20px 0;
     height: 4.25rem;
     width: 100%;
     font-size: .95rem;
@@ -92,7 +92,8 @@ button{
 .tweet{
     border-top: 1px solid lightgray;
     padding: 20px 0 0 0;
-    width: 100%;
+    width: 94%
+    margin 0 auto;
     margin: 15px 0;
 }
 
@@ -106,7 +107,8 @@ button{
     display: flex;
     font-size: 13px;
     justify-content: space-between;
-    width: 160px;
+    padding-left: 3%;
+    padding-right:3%;
 }
 
 .tweet-detail{
@@ -129,9 +131,10 @@ button{
 }
 
 .tweet-text{
-    width: 207px;
+    width: 98%;
     font-size: 14px;
     line-height: 20px;
+    margin-bottom: 0;  /* WATCH margin-bottom after adding replies! */
 }
 
 /* images */
