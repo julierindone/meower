@@ -37,6 +37,7 @@ i{
 
 main, header{
     width: 90%;
+    max-width: 380px;
     margin: 0 auto;
 }
 
@@ -92,8 +93,6 @@ button{
 .tweet{
     border-top: 1px solid lightgray;
     padding: 20px 0 0 0;
-    width: 94%
-    margin 0 auto;
     margin: 15px 0;
 }
 
@@ -103,12 +102,14 @@ button{
     gap: 10px;
 }
 
+.tweet-content {
+    width: 100%;
+}
+
 .tweet-details{
     display: flex;
     font-size: 13px;
     justify-content: space-between;
-    padding-left: 3%;
-    padding-right:3%;
 }
 
 .tweet-detail{
@@ -131,10 +132,8 @@ button{
 }
 
 .tweet-text{
-    width: 98%;
     font-size: 14px;
     line-height: 20px;
-    margin-bottom: 0;  /* WATCH margin-bottom after adding replies! */
 }
 
 /* images */
