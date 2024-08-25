@@ -30,16 +30,22 @@ function handleLikeClick(tweetId) {
 			return tweet.uuid === tweetId
 		})[0]
 
-	targetTweetObj.likes++
-	render()	
+	// if the tweet wasn't already liked, increment the value and set isLiked to true.
+	if (!targetTweetObj.isLiked) {
+		targetTweetObj.likes++
+		targetTweetObj.isLiked = true
+	}
+	// if the tweet wasn't already liked, decrement the value and set isLiked to false.
+	else {
+		targetTweetObj.likes--
+		targetTweetObj.isLiked = false
+	}
+
+	render()
 }
 function handleRetweetClick(tweetId) {
 	console.log(`Retweet handled here`);
 }
-
-
-
-
 
 function getFeedHtml(tweetsData) {
 	let feedHtml = ``
