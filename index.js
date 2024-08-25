@@ -14,20 +14,28 @@ document.addEventListener('click', function (e) {
 		handleReplyClick(e.target.dataset.reply)
 	}
 	else if (e.target.dataset.like) {
-		handleLikeClick()
+		handleLikeClick(e.target.dataset.like)
 	}
 	else if (e.target.dataset.retweet) {
-		handleRetweetClick()
+		handleRetweetClick(e.target.dataset.like)
 	}
 })
 
 function handleReplyClick(tweetId) {
 	console.log(`reply handled here. ${tweetId}`);
 }
-function handleLikeClick() {
-	console.log(`Like handled here`);
+function handleLikeClick(tweetId) {
+	for (let i = 0; i < tweetsData.length; i++) {
+		const targetTweetObj = tweetsData[i]
+
+		if (targetTweetObj.uuid === tweetId) {
+			console.log(targetTweetObj.handle + targetTweetObj.uuid)
+			targetTweetObj.likes++
+			console.log("like count" + targetTweetObj.likes);
+		}
+	}
 }
-function handleRetweetClick() {
+function handleRetweetClick(tweetId) {
 	console.log(`Retweet handled here`);
 }
 
