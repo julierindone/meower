@@ -25,15 +25,13 @@ function handleReplyClick(tweetId) {
 	console.log(`reply handled here. ${tweetId}`);
 }
 function handleLikeClick(tweetId) {
-	for (let i = 0; i < tweetsData.length; i++) {
-		const targetTweetObj = tweetsData[i]
+	const targetTweetObj =
+		tweetsData.filter((tweet) => {
+			return tweet.uuid === tweetId
+		})[0]
 
-		if (targetTweetObj.uuid === tweetId) {
-			console.log(targetTweetObj.handle + targetTweetObj.uuid)
-			targetTweetObj.likes++
-			console.log("like count" + targetTweetObj.likes);
-		}
-	}
+	targetTweetObj.likes++
+	render()	
 }
 function handleRetweetClick(tweetId) {
 	console.log(`Retweet handled here`);
