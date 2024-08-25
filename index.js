@@ -30,16 +30,17 @@ function handleLikeClick(tweetId) {
 			return tweet.uuid === tweetId
 		})[0]
 
-	// if the tweet wasn't already liked, increment the value and set isLiked to true.
+	// if the tweet wasn't already liked, increment the value.
 	if (!targetTweetObj.isLiked) {
 		targetTweetObj.likes++
-		targetTweetObj.isLiked = true
 	}
-	// if the tweet wasn't already liked, decrement the value and set isLiked to false.
+	// if the tweet wasn't already liked, decrement the value.
 	else {
 		targetTweetObj.likes--
-		targetTweetObj.isLiked = false
 	}
+
+	// toggle the value of isliked.
+	targetTweetObj.isLiked = !targetTweetObj.isLiked
 
 	render()
 }
