@@ -18,10 +18,8 @@ document.addEventListener('click', function (e) {
 	}
 })
 
-function handleReplyClick(tweetId) {
-	console.log(`reply handled here. ${tweetId}`);
-}
 function handleLikeClick(tweetId) {
+	// get the uuid of the tweet that matches the current tweetId
 	const targetTweetObj =
 		tweetsData.filter((tweet) => {
 			return tweet.uuid === tweetId
@@ -59,10 +57,16 @@ function handleRetweetClick(tweetId) {
 	render()
 }
 
+function handleReplyClick(replyId) {
+	// Note to self: there's no need for filtering because in response to this click, the icon is just the target. The action here is actually on the replies div.
+
+	// toggle the class list (which just has the hidden class) when clicked.
+	document.getElementById(`replies-${replyId}`).classList.toggle("hidden")
+}
 
 function getFeedHtml() {
 	let feedHtml = ``
-	
+
 	tweetsData.forEach(tweet => {
 		let retweetIconClass = ''
 		let likeIconClass = ''
@@ -76,17 +80,13 @@ function getFeedHtml() {
 
 		if (tweet.isRetweeted) {
 			retweetIconClass = 'retweeted'
-			console.log(`retweeted`);
-			
 		}
 		else {
 			retweetIconClass = ''
 		}
+
 		let repliesHtml = ``
-
 		if (tweet.replies.length > 0) {
-			console.log(tweet.uuid);
-
 			tweet.replies.forEach(reply => {
 				repliesHtml += `
 					<div class="tweet-reply">
@@ -124,9 +124,8 @@ function getFeedHtml() {
 						</div>
 					</div>
 				</div>
-				<div id="replies-${tweet.uuid}">${repliesHtml}</div>
+				<div class="hidden" id="replies-${tweet.uuid}">${repliesHtml}</div>
 			</div>`
-
 	});
 	return feedHtml
 }
