@@ -59,7 +59,8 @@ function handleRetweetClick(tweetId) {
 	render()
 }
 
-function getFeedHtml(tweetsData) {
+
+function getFeedHtml() {
 	let feedHtml = ``
 	let likedIconClass = ''
 	let retweetedIconClass = ''
@@ -110,7 +111,7 @@ function getFeedHtml(tweetsData) {
 }
 
 function render() {
-	document.getElementById('feed').innerHTML = getFeedHtml(tweetsData);
+	document.getElementById('feed').innerHTML = getFeedHtml();
 }
 
 render()
