@@ -1,6 +1,5 @@
 import { tweetsData } from "./data.js";
 import { v4 as uuidv4 } from "https://jspm.dev/uuid";
-console.log(uuidv4());
 
 const tweetInput = document.getElementById("tweet-input")
 
@@ -32,7 +31,6 @@ function handleTweetBtnClick() {
 		isRetweeted: false,
 		uuid: uuidv4()
 	}
-	console.log(newTweet.uuid)
 	tweetsData.unshift(newTweet)
 	tweetInput.value = ''
 	render()
@@ -56,7 +54,6 @@ function handleLikeClick(tweetId) {
 
 	// toggle the value of isliked.
 	targetTweetObj.isLiked = !targetTweetObj.isLiked
-
 	render()
 }
 
@@ -73,7 +70,6 @@ function handleRetweetClick(tweetId) {
 		targetTweetObj.retweets--
 	}
 	targetTweetObj.isRetweeted = !targetTweetObj.isRetweeted
-
 	render()
 }
 
