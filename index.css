@@ -1,5 +1,5 @@
 :root {
-    --ice-blue: #9bcbd1;
+    --ice-blue: #b2d4d7;
     --robins-egg: #599197;
     --gray-outline: #b9b9b9;
 }
@@ -26,11 +26,11 @@ i{
 }
 
 .liked{
-    color: rgb(149, 0, 0);
+    color: rgb(170, 0, 0);
 }
 
 .retweeted {
-    color: rgb(0, 107, 57);
+    color: #009851;
 }
 
 /* layout */
@@ -110,6 +110,7 @@ button{
     display: flex;
     font-size: 13px;
     justify-content: space-between;
+    padding-right: .4rem;
 }
 
 .tweet-detail{
