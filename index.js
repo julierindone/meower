@@ -1,11 +1,12 @@
 import { tweetsData } from "./data.js";
+import {v4 as uuidv4 } from "https://jspm.dev/uuid";
+console.log(uuidv4());
 
 const tweetInput = document.getElementById("tweet-input")
-const tweetBtn = document.getElementById("tweet-btn")
 
 document.addEventListener('click', function (e) {
-	if (e.target === tweetBtn) {
-		tweetInput.value = ''
+	if (e.target.id === 'tweet-btn') {
+		handleTweetBtnClick()
 	}
 	else if (e.target.dataset.reply) {
 		handleReplyClick(e.target.dataset.reply)
@@ -17,6 +18,25 @@ document.addEventListener('click', function (e) {
 		handleRetweetClick(e.target.dataset.retweet)
 	}
 })
+
+function handleTweetBtnClick() {
+	let newTweet = {
+		// build a new tweet object.
+		handle: `AudreyHorneCooper`,
+		profilePic: `images/cooper.jpg`,
+		likes: 0,
+		retweets: 0,
+		tweetText: `${tweetInput.value}`,
+		replies: [],
+		isLiked: false,
+		isRetweeted: false,
+		uuid: uuidv4()
+	}
+	console.log(newTweet.uuid)
+	tweetsData.unshift(newTweet)
+	tweetInput.value = ''
+	render()
+}
 
 function handleLikeClick(tweetId) {
 	// get the uuid of the tweet that matches the current tweetId
