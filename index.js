@@ -1,5 +1,5 @@
 import { tweetsData } from "./data.js";
-import {v4 as uuidv4 } from "https://jspm.dev/uuid";
+import { v4 as uuidv4 } from "https://jspm.dev/uuid";
 console.log(uuidv4());
 
 const tweetInput = document.getElementById("tweet-input")
@@ -26,7 +26,7 @@ function handleTweetBtnClick() {
 		profilePic: `images/cooper.jpg`,
 		likes: 0,
 		retweets: 0,
-		tweetText: `${tweetInput.value}`,
+		tweetText: tweetInput.value,
 		replies: [],
 		isLiked: false,
 		isRetweeted: false,
