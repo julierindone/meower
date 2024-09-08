@@ -1,8 +1,6 @@
 import { tweetsData } from "./data.js";
 import { v4 as uuidv4 } from "https://jspm.dev/uuid";
 
-const tweetInput = document.getElementById("tweet-input")
-
 document.addEventListener('click', function (e) {
 	if (e.target.id === 'tweet-btn') {
 		handleTweetBtnClick()
@@ -19,6 +17,8 @@ document.addEventListener('click', function (e) {
 })
 
 function handleTweetBtnClick() {
+	const tweetInput = document.getElementById("tweet-input")
+	
 	if (!(tweetInput.value.trim() === '')) {
 		let newTweet = {
 			// build a new tweet object.
