@@ -19,21 +19,23 @@ document.addEventListener('click', function (e) {
 })
 
 function handleTweetBtnClick() {
-	let newTweet = {
-		// build a new tweet object.
-		handle: `AudreyHorneCooper`,
-		profilePic: `images/cooper.jpg`,
-		likes: 0,
-		retweets: 0,
-		tweetText: tweetInput.value,
-		replies: [],
-		isLiked: false,
-		isRetweeted: false,
-		uuid: uuidv4()
+	if (!(tweetInput.value.trim() === '')) {
+		let newTweet = {
+			// build a new tweet object.
+			handle: `AudreyHorneCooper`,
+			profilePic: `images/cooper.jpg`,
+			likes: 0,
+			retweets: 0,
+			tweetText: tweetInput.value,
+			replies: [],
+			isLiked: false,
+			isRetweeted: false,
+			uuid: uuidv4()
+		}
+		tweetsData.unshift(newTweet)
+		tweetInput.value = ''
+		render()
 	}
-	tweetsData.unshift(newTweet)
-	tweetInput.value = ''
-	render()
 }
 
 function handleLikeClick(tweetId) {
