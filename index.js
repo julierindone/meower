@@ -118,6 +118,15 @@ function getFeedHtml() {
 					</div>`
 			})
 		}
+		repliesHtml += `
+		<div class="tweet-reply">
+			<div class="tweet-input-area reply-input-area">
+				<img src="images/cooper.jpg" class="profile-pic">
+				<textarea name="reply-input" id="reply-input" placeholder="BE NICE."></textarea>
+			</div>
+			<button id="reply-input-btn">reply</button>
+		</div>
+		`
 
 		feedHtml += `
 			<div class="tweet">
