@@ -5,8 +5,8 @@ document.addEventListener('click', function (e) {
 	if (e.target.id === 'tweet-btn') {
 		handleTweetBtnClick()
 	}
-	else if (e.target.id === 'reply-input-btn') {
-		handleReplyInputBtnClick()
+	else if (e.target.dataset.replyInputBtn) {
+		handleReplyInputBtnClick(e.target.dataset.replyInputBtn)
 		console.log(e.target.dataset.replyInputBtn)
 	}
 	else if (e.target.dataset.reply) {
@@ -42,7 +42,9 @@ function handleTweetBtnClick() {
 	}
 }
 
-function handleReplyInputBtnClick() {
+function handleReplyInputBtnClick(tweetId) {
+	console.log(tweetId)
+
 	const replyInput = document.getElementById('reply-input')
 	// i think I need to set up a filter to find the tweet id that the reply is going to so it can find the correct one.
 	console.log(`replyInput is ${replyInput.value}`)
