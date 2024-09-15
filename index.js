@@ -5,6 +5,10 @@ document.addEventListener('click', function (e) {
 	if (e.target.id === 'tweet-btn') {
 		handleTweetBtnClick()
 	}
+	else if (e.target.id === 'reply-input-btn') {
+		handleReplyInputBtnClick()
+		console.log(e.target.dataset.replyInputBtn)
+	}
 	else if (e.target.dataset.reply) {
 		handleReplyClick(e.target.dataset.reply)
 	}
@@ -36,6 +40,13 @@ function handleTweetBtnClick() {
 		tweetInput.value = ''
 		render()
 	}
+}
+
+function handleReplyInputBtnClick() {
+	const replyInput = document.getElementById('reply-input')
+	// i think I need to set up a filter to find the tweet id that the reply is going to so it can find the correct one.
+	console.log(`replyInput is ${replyInput.value}`)
+	
 }
 
 function handleLikeClick(tweetId) {
@@ -124,7 +135,7 @@ function getFeedHtml() {
 				<img src="images/cooper.jpg" class="profile-pic">
 				<textarea name="reply-input" id="reply-input" placeholder="BE NICE."></textarea>
 			</div>
-			<button id="reply-input-btn">reply</button>
+			<button id="reply-input-btn" data-reply-input-btn="${tweet.uuid}">reply</button>
 		</div>
 		`
 
