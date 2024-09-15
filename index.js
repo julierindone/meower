@@ -43,10 +43,11 @@ function handleTweetBtnClick() {
 }
 
 function handleReplyInputBtnClick(tweetId) {
-	const replyInput = document.getElementById('reply-input')
+	const replyInput = document.getElementById("reply-input")
+	console.log(replyInput.value)
 	const targetTweetObj =
 		tweetsData.filter((tweet) => {
-			return tweet.uuid = tweetId
+		return tweet.uuid === tweetId
 		})[0]
 
 		let newReply = {
