@@ -26,7 +26,7 @@ function handleTweetBtnClick() {
 	if (!(tweetInput.value.trim() === '')) {
 		let newTweet = {
 			// build a new tweet object.
-			handle: `AudreyHorneCooper`,
+			handle: `@AudreyHorneCooper`,
 			profilePic: `images/cooper.jpg`,
 			likes: 0,
 			retweets: 0,
@@ -43,12 +43,20 @@ function handleTweetBtnClick() {
 }
 
 function handleReplyInputBtnClick(tweetId) {
-	console.log(tweetId)
-
 	const replyInput = document.getElementById('reply-input')
-	// i think I need to set up a filter to find the tweet id that the reply is going to so it can find the correct one.
-	console.log(`replyInput is ${replyInput.value}`)
-	
+	const targetTweetObj =
+		tweetsData.filter((tweet) => {
+			return tweet.uuid = tweetId
+		})[0]
+
+		let newReply = {
+			handle: `AudreyHorneCooper`,
+			profilePic: `images/cooper.jpg`,
+			tweetText: replyInput.value
+	}
+	targetTweetObj.replies.unshift(newReply)
+	replyInput.value = ''
+	render()
 }
 
 function handleLikeClick(tweetId) {
