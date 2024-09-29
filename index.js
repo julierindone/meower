@@ -6,7 +6,7 @@ document.addEventListener('click', function (e) {
 		handleTweetBtnClick()
 	}
 	else if (e.target.dataset.replyInputBtn) {
-		handleReplyInputBtnClick(e.target.dataset.replyInputBtn)
+		handleReplyBtnClick(e.target.dataset.replyInputBtn)
 		console.log(e.target.dataset.replyInputBtn)
 	}
 	else if (e.target.dataset.reply) {
