@@ -88,6 +88,19 @@ button{
     -webkit-text-stroke-color: var(--gray-outline);
 }
 
+.reply-input-area textarea {
+    margin-bottom: 10px;
+    height: 3.75rem;
+}
+
+#reply-input-btn {
+    background: var(--ice-blue);    border: none;
+    color: white;
+    padding: 7px 19px;
+    border-radius: 15px;
+    font-size: 1.25rem;
+}
+
 /* tweet */
 
 .tweet{
@@ -135,6 +148,14 @@ button{
 .tweet-text{
     font-size: 14px;
     line-height: 20px;
+
+.tweet-reply .tweet-text {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.tweet-reply .handle {
+    margin-bottom: .45rem;
 }
 
 /* images */

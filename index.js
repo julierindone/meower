@@ -42,21 +42,33 @@ function handleTweetBtnClick() {
 	}
 }
 
-function handleReplyInputBtnClick(tweetId) {
-	const replyInput = document.getElementById("reply-input")
-	console.log(replyInput.value)
+function handleReplyBtnClick(tweetId) {
+	// My guess is that this is the source of the problem. How do I get the replyInput to attach to the tweet being responded to? Every single reply box 
+	const replyInput = document.getElementById(`reply-input-${tweetId}`)
+	console.log('replyInput.value is ' + replyInput.value)
+
 	const targetTweetObj =
 		tweetsData.filter((tweet) => {
-		return tweet.uuid === tweetId
-		})[0]
+			return tweet.uuid === tweetId
+		})[0]  // the 0 is the only thing in the index at this time because it's been filtered! Stop trying to change it!
 
-		let newReply = {
-			handle: `AudreyHorneCooper`,
-			profilePic: `images/cooper.jpg`,
-			tweetText: replyInput.value
+	console.log("targetTweetObj:" + targetTweetObj.uuid);
+	console.log(targetTweetObj);
+
+	let targetTweetObjReply = targetTweetObj.replies[0]
+	// console.log(targetTweetObjReply.tweetText)
+
+	let newReply = {
+		handle: `AudreyHorneCooper`,
+		profilePic: `images/cooper.jpg`,
+		// replyInput.value is blank every time! WHY
+		tweetText: replyInput.value
 	}
 	targetTweetObj.replies.unshift(newReply)
-	replyInput.value = ''
+
+	console.log(newReply);
+
+	replyInput.innerHTML = newReply.tweetText
 	render()
 }
 
@@ -144,7 +156,10 @@ function getFeedHtml() {
 		<div class="tweet-reply">
 			<div class="tweet-input-area reply-input-area">
 				<img src="images/cooper.jpg" class="profile-pic">
-				<textarea name="reply-input" id="reply-input" placeholder="BE NICE."></textarea>
+				<textarea
+					name="reply-input" 
+					id="reply-input-${tweet.uuid}" 
+					placeholder="BE NICE."></textarea>
 			</div>
 			<button id="reply-input-btn" data-reply-input-btn="${tweet.uuid}">reply</button>
 		</div>
