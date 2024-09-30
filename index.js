@@ -7,7 +7,6 @@ document.addEventListener('click', function (e) {
 	}
 	else if (e.target.dataset.replyInputBtn) {
 		handleReplyBtnClick(e.target.dataset.replyInputBtn)
-		console.log(e.target.dataset.replyInputBtn)
 	}
 	else if (e.target.dataset.reply) {
 		handleReplyClick(e.target.dataset.reply)
@@ -18,11 +17,14 @@ document.addEventListener('click', function (e) {
 	else if (e.target.dataset.retweet) {
 		handleRetweetClick(e.target.dataset.retweet)
 	}
+	else if (e.target.dataset.deleteTweet) {
+		handleDeleteClick(e.target.dataset.deleteTweet)
+	}
 })
 
 function handleTweetBtnClick() {
 	const tweetInput = document.getElementById("tweet-input")
-	
+
 	if (!(tweetInput.value.trim() === '')) {
 		let newTweet = {
 			// build a new tweet object.
@@ -116,6 +118,17 @@ function handleReplyClick(replyId) {
 	document.getElementById(`replies-${replyId}`).classList.toggle("hidden")
 }
 
+function handleDeleteClick(tweetId) {
+	const targetTweetObj = tweetsData.filter((tweet) => {
+		return tweet.uuid === tweetId
+	})[0]
+
+	let targetIndex = tweetsData.indexOf(targetTweetObj);
+
+	tweetsData.splice(targetIndex, 1)
+	render()
+}
+
 function getFeedHtml() {
 	let feedHtml = ``
 
@@ -183,7 +196,9 @@ function getFeedHtml() {
 							</span>
 							<span class="tweet-detail">
 								<i class="fa-solid fa-retweet ${retweetIconClass}" data-retweet="${tweet.uuid}"></i>
-								${tweet.retweets}
+							</span>
+							<span class="tweet-detail">
+								<i class="fa-solid fa-trash" id="delete-tweet-${tweet.uuid}" data-delete-tweet="${tweet.uuid}"></i>
 							</span>
 						</div>
 					</div>
