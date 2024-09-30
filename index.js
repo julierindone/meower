@@ -154,12 +154,26 @@ function getFeedHtml() {
 		if (tweet.replies.length > 0) {
 			tweet.replies.forEach(reply => {
 				repliesHtml += `
-					<div class="tweet-reply">
-						<div class="tweet-inner">
+					<div class="tweet-reply tweet-inner">
 							<img class="profile-pic" alt="Profile Pic" src="${reply.profilePic}">
-								<div>
-									<p class="handle">${reply.handle}</p>
-									<p class="tweet-text">${reply.tweetText}</p>
+							<div class=content>
+								<p class="handle">${reply.handle}</p>
+								<p class="tweet-text">${reply.tweetText}</p>
+								<div class="tweet-details">
+                <span class="tweet-detail">
+									<i class="fa-regular fa-comment-dots" data-reply="${tweet.uuid}"></i>
+									${tweet.replies.length}
+                </span>
+                <span class="tweet-detail">
+									<i class="fa-regular fa-heart ${likeIconClass}" data-like="${tweet.uuid}"></i>
+									${tweet.likes}
+                </span>
+                <span class="tweet-detail">
+									<i class="fa-solid fa-retweet ${retweetIconClass}" data-retweet="${tweet.uuid}"></i>
+									</span>
+                <span class="tweet-detail">
+									<i class="fa-solid fa-trash" id="delete-tweet-${tweet.uuid}" data-delete-tweet="${tweet.uuid}"></i>
+									</span>
 								</div>
 						</div>
 					</div>`
