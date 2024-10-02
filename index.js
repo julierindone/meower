@@ -45,31 +45,18 @@ function handleTweetBtnClick() {
 }
 
 function handleReplyBtnClick(tweetId) {
-	// My guess is that this is the source of the problem. How do I get the replyInput to attach to the tweet being responded to? Every single reply box 
 	const replyInput = document.getElementById(`reply-input-${tweetId}`)
-	console.log('replyInput.value is ' + replyInput.value)
-
 	const targetTweetObj =
 		tweetsData.filter((tweet) => {
 			return tweet.uuid === tweetId
 		})[0]  // the 0 is the only thing in the index at this time because it's been filtered! Stop trying to change it!
 
-	console.log("targetTweetObj:" + targetTweetObj.uuid);
-	console.log(targetTweetObj);
-
-	let targetTweetObjReply = targetTweetObj.replies[0]
-	// console.log(targetTweetObjReply.tweetText)
-
 	let newReply = {
 		handle: `AudreyHorneCooper`,
 		profilePic: `images/cooper.jpg`,
-		// replyInput.value is blank every time! WHY
 		tweetText: replyInput.value
 	}
 	targetTweetObj.replies.unshift(newReply)
-
-	console.log(newReply);
-
 	replyInput.innerHTML = newReply.tweetText
 	render()
 }
